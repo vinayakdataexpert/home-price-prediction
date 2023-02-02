@@ -21,6 +21,6 @@ if st.button('Predict'):
     input_df = pd.DataFrame({'location': [location_input], 'total_sqft': [total_sqft], 'bath': [bathroom], 'bhk': bhk})
 
     result = model.predict(input_df)
-    st.header("₹" + str(result*10000))
+    st.header("₹" + str(result*100000))
 
 # py -m streamlit run app.py   To run this app.py
