@@ -18,11 +18,11 @@ bathroom = st.number_input('Enter Number of Bathroom')
 bhk = st.number_input('Enter Number of Bedroom')
 
 if st.button('Predict'):
-    input_df = pd.DataFrame({'location': location_input, 'total_sqft': total_sqft, 'bath': bathroom, 'bhk': bhk})
+    input_df = pd.DataFrame({'location': [location_input], 'total_sqft': [total_sqft], 'bath': [bathroom], 'bhk': [bhk]})
     
     if total_sqft == 0.00 or bath == 0.00 or bhk == 0.00:
         result = "Please type Valid Sqare feet,Bathroom BHK"
-        result
+        st.header(result)
     else:
         result = model.predict(input_df)
         st.header("₹" + str(result*100000))
