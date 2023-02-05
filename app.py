@@ -19,8 +19,19 @@ bhk = st.number_input('Enter Number of Bedroom')
 
 if st.button('Predict'):
     input_df = pd.DataFrame({'location': [location_input], 'total_sqft': [total_sqft], 'bath': [bathroom], 'bhk': bhk})
+    
+    if total_sqft == 0.00:
+        result = "Please type Valid Sqare feet"
+        st.header(result)
+    elif bath == 0.00:
+        result = "Please type Valid Bathroom"
+        st.header(result)
+    elif bhk == 0.00:
+        result = "Please type Valid BHK"
+        st.header(result)
 
-    result = model.predict(input_df)
-    st.header("₹" + str(result*100000))
+    else:
+        result = model.predict(input_df)
+        st.header("₹" + str(result*100000))
 
 # py -m streamlit run app.py   To run this app.py
