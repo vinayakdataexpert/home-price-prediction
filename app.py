@@ -25,7 +25,6 @@ if st.button('Predict'):
         st.header(result)
     else:
         result = model.predict(input_df)
-        result = round(result)
         st.header("₹" + str(result*100000))
 
 # py -m streamlit run app.py   To run this app.py
