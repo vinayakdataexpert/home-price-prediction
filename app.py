@@ -25,4 +25,4 @@ if st.button('Predict'):
         st.header(result)
     else:
         result = model.predict(input_df)
-        st.header("₹" + str(result[0]*100000))
+        st.header("₹" + str(round(result[0],2)*100000))
